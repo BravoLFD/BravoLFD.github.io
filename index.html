@@ -2,19 +2,248 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Mi Proyecto</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Final - Sistemas Operativos</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #f5f5f5;
+            scroll-behavior: smooth;
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #111827;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        nav .logo {
+            color: white;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 300;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #8b5cf6;
+        }
+
+        /* Hero / Inicio */
+        header {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("imagenes/banner.jpg");
+            background-size: cover;
+            background-position: center;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: 50px;
+        }
+
+        header h1 {
+            font-size: 45px;
+            margin: 0;
+        }
+
+        header p {
+            font-size: 20px;
+            width: 60%;
+        }
+
+        section {
+            padding: 80px 40px;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 40px;
+        }
+
+        /* Cards */
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 25px;
+        }
+
+        .gallery img, video {
+            width: 300px;
+            margin: 10px;
+            border-radius: 6px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #111827;
+            color: white;
+            margin-top: 40px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header p {
+                width: 90%;
+            }
+            nav ul {
+                display: none;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Bienvenido a mi página</h1>
-    <p>Aquí subiré capturas y videos del proyecto.</p>
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">Proyecto Final SO</div>
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#actividad1">Actividad 1</a></li>
+            <li><a href="#actividad2">Actividad 2</a></li>
+            <li><a href="#actividad3">Actividad 3</a></li>
+            <li><a href="#actividad4">Actividad 4</a></li>
+            <li><a href="#actividad5">Actividad 5</a></li>
+            <li><a href="#actividad6">Actividad 6</a></li>
+            <li><a href="#actividad7">Actividad 7</a></li>
+            <li><a href="#actividad8">Actividad 8</a></li>
+        </ul>
+    </nav>
 
-    <h2>Capturas</h2>
-    <img src="imagenes/captura1.png" width="400">
+    <!-- HERO -->
+    <header id="inicio">
+        <h1>Proyecto Final – Sistemas Operativos</h1>
+        <p>
+            Instalación, configuración, virtualización, automatización, Docker, Kubernetes y despliegue web.  
+            Este sitio contiene toda la evidencia requerida para el proyecto final del curso.
+        </p>
+    </header>
 
-    <h2>Videos</h2>
-    <video width="500" controls>
-        <source src="videos/video1.mp4" type="video/mp4">
-        Tu navegador no soporta la reproducción de video.
-    </video>
+    <!-- INFORMACIÓN DEL GRUPO -->
+    <section>
+        <h2>Información del Grupo</h2>
+        <div class="card">
+            <h3>Integrantes</h3>
+            <ul>
+                <li>• Nombre 1</li>
+                <li>• Nombre 2</li>
+                <li>• Nombre 3</li>
+                <li>• Nombre 4</li>
+            </ul>
+
+            <h3>Descripción del Proyecto</h3>
+            <p>
+                El objetivo del proyecto es profundizar en el manejo de sistemas operativos mediante la instalación
+                de distribuciones Linux, scripting, gestión de procesos, contenedores Docker, Kubernetes y elaboración
+                de un sitio web de documentación.  
+            </p>
+        </div>
+    </section>
+
+    <!-- ACTIVIDADES -->
+    
+    <!-- ACTIVIDAD 1 -->
+    <section id="actividad1">
+        <h2>Actividad 1 – Instalaciones de Linux</h2>
+        <div class="card">
+            <h3>1.1 Instalación Gráfica</h3>
+            <p>Aquí van las capturas y videos de la instalación gráfica.</p>
+            <div class="gallery">
+                <img src="imagenes/actividad1/captura1.png">
+                <video controls src="videos/actividad1/video1.mp4"></video>
+            </div>
+
+            <h3>1.2 Instalación por Consola</h3>
+            <p>Aquí van las capturas y videos de la instalación en modo consola.</p>
+        </div>
+    </section>
+
+    <!-- ACTIVIDAD 2 -->
+    <section id="actividad2">
+        <h2>Actividad 2 – Editores de texto</h2>
+        <div class="card">
+            <p>Capturas y videos mostrando Vim, Nano, Emacs, etc.</p>
+        </div>
+    </section>
+
+    <!-- ACTIVIDAD 3 -->
+    <section id="actividad3">
+        <h2>Actividad 3 – Scripts y Gestión de Procesos</h2>
+        <div class="card">
+            <p>Scripts bash, gestión de procesos (ps, top, kill…), hilos en Java.</p>
+        </div>
+    </section>
+
+    <!-- ACTIVIDAD 4 -->
+    <section id="actividad4">
+        <h2>Actividad 4 – Docker Engine</h2>
+        <div class="card">
+            <p>Instalación de Docker Engine, Dockerfile, contenedores.</p>
+        </div>
+    </section>
+
+    <!-- ACTIVIDAD 5 -->
+    <section id="actividad5">
+        <h2>Actividad 5 – Docker Hub</h2>
+        <div class="card">
+            <p>Publicación de imágenes en Docker Hub.</p>
+        </div>
+    </section>
+
+    <!-- ACTIVIDAD 6 -->
+    <section id="actividad6">
+        <h2>Actividad 6 – Kubernetes</h2>
+        <div class="card">
+            <p>Instalación de Minikube/K3s, despliegue de pods y servicios.</p>
+        </div>
+    </section>
+
+    <!-- ACTIVIDAD 7 -->
+    <section id="actividad7">
+        <h2>Actividad 7 – Sitio Web</h2>
+        <div class="card">
+            <p>Videos, estructura, capturas, presentación final.</p>
+        </div>
+    </section>
+
+    <!-- ACTIVIDAD 8 -->
+    <section id="actividad8">
+        <h2>Actividad 8 – Presentación final</h2>
+        <div class="card">
+            <p>Video de sustentación.</p>
+        </div>
+    </section>
+
+    <footer>
+        Proyecto Final – Sistemas Operativos © 2025
+    </footer>
+
 </body>
 </html>
