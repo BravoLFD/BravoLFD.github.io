@@ -8,12 +8,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
+
 /* ======= BASE ======= */
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
 
-    /* FONDO PERSONALIZADO */
     background: url("imagenes/fondo.png") no-repeat center center fixed;
     background-size: cover;
 
@@ -34,13 +34,14 @@ nav {
     backdrop-filter: blur(6px);
 }
 
+/* LOGO */
 nav .logo {
     color: white;
     font-size: 20px;
     font-weight: 600;
 }
 
-/* LINKS DEL MENÚ */
+/* ======= MENU ESCRITORIO ======= */
 nav ul {
     list-style: none;
     display: flex;
@@ -55,7 +56,6 @@ nav ul li > a {
     color: #d1d5db !important;
 }
 
-/* LISTA */
 nav ul li {
     position: relative;
 }
@@ -103,10 +103,9 @@ nav ul li a:hover {
     flex-direction: column;
     cursor: pointer;
     padding: 12px;
-    margin-right: 25px !important;
+    right: 10px;
     position: relative;
-    right: 5px;
-    z-index: 2001;
+    z-index: 3000;
 }
 
 .hamburger span {
@@ -129,7 +128,7 @@ nav ul li a:hover {
     transform: rotate(-45deg) translate(7px, -7px);
 }
 
-/* ======= MENU MÓVIL CON SLIDE-IN ======= */
+/* ======= MENU MÓVIL (SLIDE-IN) ======= */
 .mobile-menu {
     display: flex;
     flex-direction: column;
@@ -158,7 +157,7 @@ nav ul li a:hover {
     border-bottom: 1px solid #333;
 }
 
-/* ======= OVERLAY (OSCURECE FONDO AL ABRIR MENÚ) ======= */
+/* ======= OVERLAY ======= */
 #overlay {
     position: fixed;
     top: 0;
@@ -171,7 +170,7 @@ nav ul li a:hover {
     z-index: 1500;
 }
 
-/* ======= HERO ======= */
+/* ======= HEADER ======= */
 header {
     height: auto;
     min-height: 75vh;
@@ -188,7 +187,7 @@ header p {
     width: 60%;
 }
 
-/* TITULOS */
+/* ======= TITULOS ======= */
 h2 {
     color: white !important;
     text-align: center;
@@ -197,7 +196,7 @@ h2 {
     text-shadow: 1px 1px 3px #000;
 }
 
-/* CARDS */
+/* ======= CARDS ======= */
 .card {
     background: white;
     padding: 25px;
@@ -206,7 +205,18 @@ h2 {
     margin-bottom: 25px;
 }
 
-/* PDFs */
+/* ==== GALERÍA ==== */
+.gallery img {
+    width: 300px;
+    border-radius: 6px;
+}
+
+.gallery video {
+    width: 300px;
+    border-radius: 6px;
+}
+
+/* ======= BOTONES PDF ======= */
 .pdf-button {
     padding: 10px 20px;
     background: #4c1d95;
@@ -217,20 +227,37 @@ h2 {
     margin-top: 10px;
 }
 
-/* VIDEOS */
-.gallery video {
-    width: 300px;
-    border-radius: 6px;
+.pdf-button:hover {
+    background: #6d28d9;
 }
 
 /* ======= RESPONSIVE FIX ======= */
+
 @media (max-width: 768px) {
 
-    .hamburger {
-        display: flex;
-        right: 10px !important;
+    /* OCULTAR MENÚ ESCRITORIO EN MÓVIL */
+    nav ul {
+        display: none !important;
+        visibility: hidden !important;
     }
 
+    nav ul li {
+        display: none !important;
+    }
+
+    /* MOSTRAR SIEMPRE LA HAMBURGUESA */
+    .hamburger {
+        display: flex !important;
+        margin-right: 0 !important;
+    }
+
+    /* DESACTIVAR DROPDOWN EN MÓVIL */
+    .dropdown-content {
+        display: none !important;
+        visibility: hidden !important;
+    }
+
+    /* HEADER */
     header h1 {
         font-size: 32px !important;
         line-height: 1.2;
@@ -238,7 +265,7 @@ h2 {
 
     header p {
         font-size: 16px !important;
-        width: 90% !important;
+        width: 90%;
     }
 
     header {
@@ -249,10 +276,11 @@ h2 {
         padding: 40px 20px !important;
     }
 }
+
 </style>
 
 <script>
-/* MENÚ CON SLIDE + OVERLAY */
+/* MENÚ MÓVIL + OVERLAY */
 function toggleMenu() {
     const menu = document.querySelector(".mobile-menu");
     const burger = document.querySelector(".hamburger");
@@ -261,11 +289,8 @@ function toggleMenu() {
     menu.classList.toggle("open");
     burger.classList.toggle("open");
 
-    if (menu.classList.contains("open")) {
-        overlay.style.display = "block";
-    } else {
-        overlay.style.display = "none";
-    }
+    overlay.style.display = 
+        menu.classList.contains("open") ? "block" : "none";
 }
 </script>
 
@@ -306,6 +331,7 @@ function toggleMenu() {
     </div>
 </nav>
 
+
 <!-- MENÚ MÓVIL -->
 <div class="mobile-menu">
     <a href="#inicio" onclick="toggleMenu()">Inicio</a>
@@ -319,6 +345,7 @@ function toggleMenu() {
     <a href="#actividad7" onclick="toggleMenu()">Actividad 7</a>
     <a href="#actividad8" onclick="toggleMenu()">Actividad 8</a>
 </div>
+
 
 <!-- HERO -->
 <header id="inicio">
@@ -346,7 +373,7 @@ function toggleMenu() {
     </div>
 </section>
 
-<!-- ACTIVIDADES (NO SE CAMBIÓ NADA DE TU ESTRUCTURA) -->
+<!-- ACTIVIDAD 1 -->
 <section id="actividad1">
     <h2>Actividad 1 – Instalaciones de Linux</h2>
 
@@ -377,39 +404,60 @@ function toggleMenu() {
     </section>
 </section>
 
+<!-- ACTIVIDAD 2 -->
 <section id="actividad2">
     <h2>Actividad 2 – Editores de Texto</h2>
-    <div class="card"><p>Puedes subir PDFs, imágenes o videos aquí.</p></div>
+    <div class="card">
+        <p>Puedes subir PDFs, imágenes o videos aquí.</p>
+    </div>
 </section>
 
+<!-- ACTIVIDAD 3 -->
 <section id="actividad3">
     <h2>Actividad 3 – Scripts y Procesos</h2>
-    <div class="card"><p>Aquí van videos, capturas, PDFs y código.</p></div>
+    <div class="card">
+        <p>Aquí van videos, capturas, PDFs y código.</p>
+    </div>
 </section>
 
+<!-- ACTIVIDAD 4 -->
 <section id="actividad4">
     <h2>Actividad 4 – Docker Engine</h2>
-    <div class="card"><p>Videos + PDFs + Dockerfiles.</p></div>
+    <div class="card">
+        <p>Videos + PDFs + Dockerfiles.</p>
+    </div>
 </section>
 
+<!-- ACTIVIDAD 5 -->
 <section id="actividad5">
     <h2>Actividad 5 – Docker Hub</h2>
-    <div class="card"><p>Evidencias del push y publicación.</p></div>
+    <div class="card">
+        <p>Evidencias del push y publicación.</p>
+    </div>
 </section>
 
+<!-- ACTIVIDAD 6 -->
 <section id="actividad6">
     <h2>Actividad 6 – Kubernetes</h2>
-    <div class="card"><p>Instalación, pods, servicios, videos, capturas.</p></div>
+    <div class="card">
+        <p>Instalación, pods, servicios, videos, capturas.</p>
+    </div>
 </section>
 
+<!-- ACTIVIDAD 7 -->
 <section id="actividad7">
     <h2>Actividad 7 – Sitio Web</h2>
-    <div class="card"><p>Videos, PDFs y material final.</p></div>
+    <div class="card">
+        <p>Videos, PDFs y material final.</p>
+    </div>
 </section>
 
+<!-- ACTIVIDAD 8 -->
 <section id="actividad8">
     <h2>Actividad 8 – Presentación Final</h2>
-    <div class="card"><p>Sube aquí el video de sustentación.</p></div>
+    <div class="card">
+        <p>Sube aquí el video de sustentación.</p>
+    </div>
 </section>
 
 <footer>
