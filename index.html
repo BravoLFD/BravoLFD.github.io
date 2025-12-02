@@ -8,23 +8,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-/* ============================
-   ESTILOS BASE
-============================ */
+/* ======= BASE ======= */
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
 
-    /* Fondo principal */
+    /* FONDO PERSONALIZADO */
     background: url("imagenes/fondo.png") no-repeat center center fixed;
     background-size: cover;
 
     scroll-behavior: smooth;
 }
 
-/* ============================
-   NAVBAR
-============================ */
+/* ======= NAVBAR ======= */
 nav {
     position: fixed;
     top: 0;
@@ -34,7 +30,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 2000;
+    z-index: 1000;
     backdrop-filter: blur(6px);
 }
 
@@ -44,22 +40,22 @@ nav .logo {
     font-weight: 600;
 }
 
+/* LINKS DEL MENÚ */
 nav ul {
     list-style: none;
     display: flex;
     gap: 20px;
 }
 
-/* Links blancos */
 nav ul li > a {
     color: white !important;
 }
 
-/* Submenús gris */
 .dropdown-content a {
     color: #d1d5db !important;
 }
 
+/* LISTA */
 nav ul li {
     position: relative;
 }
@@ -74,7 +70,7 @@ nav ul li a:hover {
     color: #8b5cf6;
 }
 
-/* Submenú */
+/* ======= DROPDOWN ======= */
 .dropdown-content {
     display: none;
     position: absolute;
@@ -82,8 +78,9 @@ nav ul li a:hover {
     background-color: #1f2937;
     min-width: 180px;
     border-radius: 8px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
     padding: 10px 0;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    transition: opacity 0.2s ease-in-out;
 }
 
 .dropdown:hover .dropdown-content,
@@ -91,17 +88,25 @@ nav ul li a:hover {
     display: block;
 }
 
-/* ============================
-   HAMBURGUESA
-============================ */
+.dropdown-content a {
+    padding: 12px 16px;
+    font-size: 14px;
+}
+
+.dropdown-content a:hover {
+    background-color: #4c1d95;
+}
+
+/* ======= HAMBURGUESA ======= */
 .hamburger {
     display: none;
     flex-direction: column;
     cursor: pointer;
     padding: 12px;
-    margin-right: 25px;
+    margin-right: 25px !important;
     position: relative;
-    right: 10px;
+    right: 5px;
+    z-index: 2001;
 }
 
 .hamburger span {
@@ -113,7 +118,7 @@ nav ul li a:hover {
     transition: 0.4s;
 }
 
-/* ANIMACIÓN → X */
+/* ANIMACIÓN A X */
 .hamburger.open span:nth-child(1) {
     transform: rotate(45deg) translate(6px, 6px);
 }
@@ -124,66 +129,58 @@ nav ul li a:hover {
     transform: rotate(-45deg) translate(7px, -7px);
 }
 
-/* ============================
-   MENÚ MÓVIL (SLIDE-IN)
-============================ */
+/* ======= MENU MÓVIL CON SLIDE-IN ======= */
 .mobile-menu {
     display: flex;
     flex-direction: column;
-    background: #111827ee;
+    background: #111827f2;
     position: fixed;
     top: 60px;
     right: 0;
     width: 75%;
+    height: calc(100vh - 60px);
     padding: 20px;
     border-radius: 0 0 0 12px;
 
     transform: translateX(100%);
     transition: transform 0.35s ease-in-out;
-    z-index: 3000;
+    z-index: 2000;
+}
+
+.mobile-menu.open {
+    transform: translateX(0);
 }
 
 .mobile-menu a {
     color: white;
-    padding: 12px 0;
+    padding: 14px 0;
     text-decoration: none;
     border-bottom: 1px solid #333;
 }
 
-.mobile-menu.open {
-    transform: translateX(0%);
-}
-
-/* ============================
-   FONDO OSCURECIDO AL ABRIR MENÚ
-============================ */
-.menu-overlay {
+/* ======= OVERLAY (OSCURECE FONDO AL ABRIR MENÚ) ======= */
+#overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.45);
     backdrop-filter: blur(3px);
     display: none;
-    z-index: 2500;
+    z-index: 1500;
 }
 
-/* ============================
-   HEADER (HERO)
-============================ */
+/* ======= HERO ======= */
 header {
+    height: auto;
     min-height: 75vh;
     padding: 150px 30px 100px 30px;
     color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 }
 
 header h1 {
     font-size: 45px;
-    margin: 0;
 }
 
 header p {
@@ -191,20 +188,16 @@ header p {
     width: 60%;
 }
 
-/* ============================
-   SECCIONES
-============================ */
-section {
-    padding: 80px 40px;
-}
-
+/* TITULOS */
 h2 {
     color: white !important;
-    text-shadow: 1px 1px 3px #000;
     text-align: center;
+    font-size: 32px;
+    margin-bottom: 40px;
+    text-shadow: 1px 1px 3px #000;
 }
 
-/* TARJETAS */
+/* CARDS */
 .card {
     background: white;
     padding: 25px;
@@ -213,14 +206,7 @@ h2 {
     margin-bottom: 25px;
 }
 
-/* VIDEOS */
-.gallery img, video {
-    width: 300px;
-    margin: 10px;
-    border-radius: 6px;
-}
-
-/* BOTONES PDF */
+/* PDFs */
 .pdf-button {
     padding: 10px 20px;
     background: #4c1d95;
@@ -231,60 +217,55 @@ h2 {
     margin-top: 10px;
 }
 
-.pdf-button:hover {
-    background: #6d28d9;
+/* VIDEOS */
+.gallery video {
+    width: 300px;
+    border-radius: 6px;
 }
 
-/* FOOTER */
-footer {
-    text-align: center;
-    padding: 20px;
-    background: #111827;
-    color: white;
-    margin-top: 40px;
-}
-
-/* ============================
-   FIX PARA CELULAR
-============================ */
+/* ======= RESPONSIVE FIX ======= */
 @media (max-width: 768px) {
+
+    .hamburger {
+        display: flex;
+        right: 10px !important;
+    }
 
     header h1 {
         font-size: 32px !important;
+        line-height: 1.2;
     }
 
     header p {
         font-size: 16px !important;
-        width: 90%;
+        width: 90% !important;
     }
 
     header {
         padding: 120px 20px 60px 20px !important;
-        height: auto;
     }
 
     section {
-        padding: 40px 20px;
-    }
-
-    .hamburger {
-        display: flex;
-        right: 15px !important;
+        padding: 40px 20px !important;
     }
 }
 </style>
 
 <script>
-/* CONTROL DEL MENÚ MÓVIL + OVERLAY */
+/* MENÚ CON SLIDE + OVERLAY */
 function toggleMenu() {
     const menu = document.querySelector(".mobile-menu");
     const burger = document.querySelector(".hamburger");
-    const overlay = document.querySelector(".menu-overlay");
+    const overlay = document.getElementById("overlay");
 
     menu.classList.toggle("open");
     burger.classList.toggle("open");
 
-    overlay.style.display = menu.classList.contains("open") ? "block" : "none";
+    if (menu.classList.contains("open")) {
+        overlay.style.display = "block";
+    } else {
+        overlay.style.display = "none";
+    }
 }
 </script>
 
@@ -292,8 +273,7 @@ function toggleMenu() {
 
 <body>
 
-<!-- OVERLAY OSCURO -->
-<div class="menu-overlay" onclick="toggleMenu()"></div>
+<div id="overlay" onclick="toggleMenu()"></div>
 
 <!-- NAVBAR -->
 <nav>
@@ -319,35 +299,36 @@ function toggleMenu() {
         <li><a href="#actividad8">Actividad 8</a></li>
     </ul>
 
-    <!-- HAMBURGUESA -->
     <div class="hamburger" onclick="toggleMenu()">
         <span></span>
         <span></span>
         <span></span>
     </div>
-
-    <!-- MENÚ MÓVIL -->
-    <div class="mobile-menu">
-        <a href="#inicio" onclick="toggleMenu()">Inicio</a>
-        <a href="#actividad1-1" onclick="toggleMenu()">Actividad 1.1</a>
-        <a href="#actividad1-2" onclick="toggleMenu()">Actividad 1.2</a>
-        <a href="#actividad2" onclick="toggleMenu()">Actividad 2</a>
-        <a href="#actividad3" onclick="toggleMenu()">Actividad 3</a>
-        <a href="#actividad4" onclick="toggleMenu()">Actividad 4</a>
-        <a href="#actividad5" onclick="toggleMenu()">Actividad 5</a>
-        <a href="#actividad6" onclick="toggleMenu()">Actividad 6</a>
-        <a href="#actividad7" onclick="toggleMenu()">Actividad 7</a>
-        <a href="#actividad8" onclick="toggleMenu()">Actividad 8</a>
-    </div>
 </nav>
+
+<!-- MENÚ MÓVIL -->
+<div class="mobile-menu">
+    <a href="#inicio" onclick="toggleMenu()">Inicio</a>
+    <a href="#actividad1-1" onclick="toggleMenu()">Actividad 1.1</a>
+    <a href="#actividad1-2" onclick="toggleMenu()">Actividad 1.2</a>
+    <a href="#actividad2" onclick="toggleMenu()">Actividad 2</a>
+    <a href="#actividad3" onclick="toggleMenu()">Actividad 3</a>
+    <a href="#actividad4" onclick="toggleMenu()">Actividad 4</a>
+    <a href="#actividad5" onclick="toggleMenu()">Actividad 5</a>
+    <a href="#actividad6" onclick="toggleMenu()">Actividad 6</a>
+    <a href="#actividad7" onclick="toggleMenu()">Actividad 7</a>
+    <a href="#actividad8" onclick="toggleMenu()">Actividad 8</a>
+</div>
 
 <!-- HERO -->
 <header id="inicio">
     <h1>Proyecto Final – Sistemas Operativos</h1>
-    <p>Instalación de distribuciones Linux, scripting, Docker, Kubernetes y documentación web.</p>
+    <p>
+        Instalación de distribuciones Linux, scripting, Docker, Kubernetes y documentación web.
+    </p>
 </header>
 
-<!-- INFORMACIÓN DEL GRUPO -->
+<!-- INFORMACIÓN -->
 <section>
     <h2>Información del Grupo</h2>
     <div class="card">
@@ -359,16 +340,17 @@ function toggleMenu() {
             <li>• Mateo Gomez Londoño - 2460361</li>
         </ul>
         <h3>Descripción del Proyecto</h3>
-        <p>Proyecto integrador basado en instalaciones de Linux, scripting, procesos, Docker, Kubernetes y documentación multimedia.</p>
+        <p>
+            Proyecto integrador basado en instalaciones de Linux, scripting, procesos, Docker, Kubernetes y documentación multimedia.
+        </p>
     </div>
 </section>
 
-<!-- ACTIVIDADES (Mantenidas igual que tú) -->
-
+<!-- ACTIVIDADES (NO SE CAMBIÓ NADA DE TU ESTRUCTURA) -->
 <section id="actividad1">
     <h2>Actividad 1 – Instalaciones de Linux</h2>
 
-    <section id="actividad1-1">
+    <section id="actividad1-1" style="margin-top:40px;">
         <div class="card">
             <h3>1.1 Instalación en Ambiente Gráfico</h3>
             <p><b>Imágenes o videos (opcionales):</b></p>
@@ -381,7 +363,7 @@ function toggleMenu() {
         </div>
     </section>
 
-    <section id="actividad1-2">
+    <section id="actividad1-2" style="margin-top:40px;">
         <div class="card">
             <h3>1.2 Instalación en Ambiente Consola</h3>
             <p><b>Imágenes o videos (opcionales):</b></p>
@@ -395,21 +377,44 @@ function toggleMenu() {
     </section>
 </section>
 
-<section id="actividad2"><h2>Actividad 2 – Editores de Texto</h2><div class="card"><p>Puedes subir PDFs, imágenes o videos aquí.</p></div></section>
+<section id="actividad2">
+    <h2>Actividad 2 – Editores de Texto</h2>
+    <div class="card"><p>Puedes subir PDFs, imágenes o videos aquí.</p></div>
+</section>
 
-<section id="actividad3"><h2>Actividad 3 – Scripts y Procesos</h2><div class="card"><p>Aquí van videos, capturas, PDFs y código.</p></div></section>
+<section id="actividad3">
+    <h2>Actividad 3 – Scripts y Procesos</h2>
+    <div class="card"><p>Aquí van videos, capturas, PDFs y código.</p></div>
+</section>
 
-<section id="actividad4"><h2>Actividad 4 – Docker Engine</h2><div class="card"><p>Videos + PDFs + Dockerfiles.</p></div></section>
+<section id="actividad4">
+    <h2>Actividad 4 – Docker Engine</h2>
+    <div class="card"><p>Videos + PDFs + Dockerfiles.</p></div>
+</section>
 
-<section id="actividad5"><h2>Actividad 5 – Docker Hub</h2><div class="card"><p>Evidencias del push y publicación.</p></div></section>
+<section id="actividad5">
+    <h2>Actividad 5 – Docker Hub</h2>
+    <div class="card"><p>Evidencias del push y publicación.</p></div>
+</section>
 
-<section id="actividad6"><h2>Actividad 6 – Kubernetes</h2><div class="card"><p>Instalación, pods, servicios, videos, capturas.</p></div></section>
+<section id="actividad6">
+    <h2>Actividad 6 – Kubernetes</h2>
+    <div class="card"><p>Instalación, pods, servicios, videos, capturas.</p></div>
+</section>
 
-<section id="actividad7"><h2>Actividad 7 – Sitio Web</h2><div class="card"><p>Videos, PDFs y material final.</p></div></section>
+<section id="actividad7">
+    <h2>Actividad 7 – Sitio Web</h2>
+    <div class="card"><p>Videos, PDFs y material final.</p></div>
+</section>
 
-<section id="actividad8"><h2>Actividad 8 – Presentación Final</h2><div class="card"><p>Sube aquí el video de sustentación.</p></div></section>
+<section id="actividad8">
+    <h2>Actividad 8 – Presentación Final</h2>
+    <div class="card"><p>Sube aquí el video de sustentación.</p></div>
+</section>
 
-<footer>Proyecto Final – Sistemas Operativos © 2025</footer>
+<footer>
+    Proyecto Final – Sistemas Operativos © 2025
+</footer>
 
 </body>
 </html>
