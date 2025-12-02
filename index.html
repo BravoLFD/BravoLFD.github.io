@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyecto Final - Sistemas Operativos</title>
 
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
     <style>
@@ -13,16 +12,13 @@
             margin: 0;
             font-family: 'Poppins', sans-serif;
 
-            /* FONDO PERSONALIZADO */
-            background: url('imagenes/fondo.jpg') no-repeat center center fixed;
+            /* Fondo cambiado por tu imagen */
+            background: url("imagenes/fondo.png") no-repeat center center fixed;
             background-size: cover;
 
             scroll-behavior: smooth;
         }
-        h2 {
-        color: white !important;
-        text-shadow: 1px 1px 3px #000;
-        }
+
         /* NAVBAR */
         nav {
             position: fixed;
@@ -33,8 +29,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            backdrop-filter: blur(5px);
             z-index: 1000;
+            backdrop-filter: blur(6px);
         }
 
         nav .logo {
@@ -43,21 +39,20 @@
             font-weight: 600;
         }
 
-        /* TODOS LOS ENLACES DEL MENÚ → BLANCOS */
-        nav ul li > a {
-            color: #ffffff !important;
-        }
-
-        /* SUBMENÚ (Actividad 1.1 y 1.2) → sigue gris */
-        .dropdown-content a {
-            color: #d1d5db !important;
-        }
-
-        /* MENU NORMAL */
         nav ul {
             list-style: none;
             display: flex;
             gap: 20px;
+        }
+
+        /* TODOS LOS LINKS BLANCOS */
+        nav ul li > a {
+            color: white !important;
+        }
+
+        /* EXCEPTO submenú Actividad 1.1 y 1.2 */
+        .dropdown-content a {
+            color: #d1d5db !important;
         }
 
         nav ul li {
@@ -86,57 +81,135 @@
             z-index: 1001;
         }
 
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
         .dropdown-content a {
             padding: 12px 16px;
             display: block;
             text-decoration: none;
+            font-size: 14px;
         }
 
-        /* HERO */
-        header {
-            min-height: 75vh;
-            padding: 150px 30px 100px 30px;
+        .dropdown-content a:hover {
+            background-color: #4c1d95;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* ----------- MENÚ HAMBURGUESA ----------- */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 12px;
+            margin-right: 10px;
+            z-index: 2000;
+        }
+
+        .hamburger span {
+            width: 32px;
+            height: 4px;
+            background: white;
+            margin: 5px 0;
+            border-radius: 4px;
+            transition: 0.4s;
+        }
+
+        /* ANIMACIÓN A "X" */
+        .hamburger.open span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.open span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* MENU MOBILE */
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            background: #111827ee;
+            position: absolute;
+            top: 60px;
+            right: 0;
+            width: 75%;
+            padding: 20px;
+            border-radius: 0 0 0 12px;
+        }
+
+        .mobile-menu a {
             color: white;
+            padding: 12px 0;
+            text-decoration: none;
+            border-bottom: 1px solid #333;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            nav ul { display: none; }
+            .hamburger { display: flex; }
+        }
+
+        /* HEADER */
+        header {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                url("imagenes/banner.jpg");
+            background-size: cover;
+            background-position: center;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: 50px;
         }
 
         header h1 {
-            font-size: 50px;
+            font-size: 45px;
             margin: 0;
-            text-shadow: 1px 1px 4px #000;
+        }
+        h2 {
+            color: white !important;
+            text-shadow: 1px 1px 3px #000;
         }
 
         header p {
-            font-size: 22px;
-            max-width: 600px;
-            text-shadow: 1px 1px 4px #000;
+            font-size: 20px;
+            width: 60%;
         }
 
-        /* CARD */
+        /* SECTIONS */
+        section {
+            padding: 80px 40px;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 40px;
+        }
+
+        /* CARDS */
         .card {
-            background: rgba(255,255,255,0.9);
+            background: white;
             padding: 25px;
             border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             margin-bottom: 25px;
-            backdrop-filter: blur(3px);
         }
 
-        /* VIDEO */
-        .video-container video {
-            width: 100%;
-            max-width: 650px;
-            border-radius: 10px;
-            display: block;
-            margin: 0 auto 15px auto;
+        /* GALERÍA */
+        .gallery img, video {
+            width: 300px;
+            margin: 10px;
+            border-radius: 6px;
         }
 
-        /* PDF BUTTON */
+        /* BOTONES */
         .pdf-button {
-            padding: 12px 20px;
+            padding: 10px 20px;
             background: #4c1d95;
             color: white;
             border-radius: 8px;
@@ -149,75 +222,16 @@
             background: #6d28d9;
         }
 
-        /* ============================
-           NUEVO MENÚ HAMBURGUESA
-           Material Design + Animación
-        ============================ */
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            padding: 12px;
-            margin-right: 15px;
-        }
-
-        .hamburger span {
-            width: 32px;        /* más grande */
-            height: 4px;        /* más grueso */
-            background: white;
-            margin: 5px 0;
-            border-radius: 4px;
-            transition: all 0.4s ease;
-        }
-
-        /* ANIMACIÓN A X */
-        .hamburger.open span:nth-child(1) {
-            transform: rotate(45deg) translate(6px, 6px);
-        }
-        .hamburger.open span:nth-child(2) {
-            opacity: 0;
-        }
-        .hamburger.open span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -7px);
-        }
-
-        /* MENU MÓVIL */
-        .mobile-menu {
-            display: none;
-            flex-direction: column;
-            background: #111827e6;
-            position: absolute;
-            top: 60px;
-            right: 0;
-            width: 70%;
+        footer {
+            text-align: center;
             padding: 20px;
-            border-radius: 0 0 0 10px;
-        }
-
-        .mobile-menu a {
+            background: #111827;
             color: white;
-            padding: 10px 0;
-            text-decoration: none;
-            border-bottom: 1px solid #333;
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 850px) {
-            nav ul {
-                display: none;
-            }
-
-            .hamburger {
-                display: flex;
-                position: relative;
-                right: 10px;
-            }
+            margin-top: 40px;
         }
     </style>
 
     <script>
-        // SCRIPT MENÚ MÓVIL + ANIMACIÓN A X
         function toggleMenu() {
             const menu = document.querySelector(".mobile-menu");
             const burger = document.querySelector(".hamburger");
@@ -226,7 +240,6 @@
             burger.classList.toggle("open");
         }
     </script>
-
 </head>
 
 <body>
@@ -235,7 +248,6 @@
     <nav>
         <div class="logo">Proyecto Final SO</div>
 
-        <!-- MENU NORMAL -->
         <ul>
             <li><a href="#inicio">Inicio</a></li>
 
@@ -256,14 +268,14 @@
             <li><a href="#actividad8">Actividad 8</a></li>
         </ul>
 
-        <!-- BOTÓN HAMBURGUESA -->
+        <!-- HAMBURGUESA -->
         <div class="hamburger" onclick="toggleMenu()">
             <span></span>
             <span></span>
             <span></span>
         </div>
 
-        <!-- MENU MOBILE -->
+        <!-- MENÚ MOBILE -->
         <div class="mobile-menu">
             <a href="#inicio">Inicio</a>
             <a href="#actividad1-1">Actividad 1.1</a>
@@ -282,21 +294,25 @@
     <header id="inicio">
         <h1>Proyecto Final – Sistemas Operativos</h1>
         <p>
-            Instalaciones Linux, scripting, Docker, Kubernetes y sitio web de documentación.
+            Instalación de distribuciones Linux, scripting, Docker, Kubernetes y documentación web.
         </p>
     </header>
 
     <!-- INFORMACIÓN DEL GRUPO -->
     <section>
+        <h2>Información del Grupo</h2>
         <div class="card">
-            <h2>Información del Grupo</h2>
             <h3>Integrantes</h3>
             <ul>
-                <li>• Nombre 1</li>
-                <li>• Nombre 2</li>
-                <li>• Nombre 3</li>
-                <li>• Nombre 4</li>
+                <li>• Luis Fernando Duque Pulgarin - 2460322 </li>
+                <li>• David Andres Guadir Macías - 2460267</li>
+                <li>• Jesus Alberto Martinez - 2460351</li>
+                <li>• Mateo Gomez Londoño - 2460361</li>
             </ul>
+            <h3>Descripción del Proyecto</h3>
+            <p>
+                Proyecto integrador basado en instalaciones de Linux, scripting, procesos, Docker, Kubernetes y documentación multimedia.
+            </p>
         </div>
     </section>
 
@@ -304,29 +320,93 @@
     <section id="actividad1">
         <h2>Actividad 1 – Instalaciones de Linux</h2>
 
-        <section id="actividad1-1">
+        <!-- 1.1 -->
+        <section id="actividad1-1" style="margin-top:40px;">
             <div class="card">
                 <h3>1.1 Instalación en Ambiente Gráfico</h3>
 
-                <div class="video-container">
+                <p><b>PDF con capturas:</b></p>
+                <a class="pdf-button" href="pdf/actividad1/actividad1.1.pdf" target="_blank">Ver PDF Instalación Gráfica</a>
+
+                <p><b>Imágenes o videos (opcionales):</b></p>
+                <div class="gallery">
+                    <img src="imagenes/actividad1/captura1.png" alt="">
                     <video controls src="videos/actividad1/video1.mp4"></video>
                 </div>
-
-                <a class="pdf-button" href="pdf/actividad1/actividad1.1.pdf" target="_blank">Ver PDF Instalación Gráfica</a>
             </div>
         </section>
 
-        <section id="actividad1-2">
+        <!-- 1.2 -->
+        <section id="actividad1-2" style="margin-top:40px;">
             <div class="card">
-                <h3>1.2 Instalación por Consola</h3>
+                <h3>1.2 Instalación en Ambiente Consola</h3>
 
-                <div class="video-container">
+                <p><b>PDF con capturas:</b></p>
+                <a class="pdf-button" href="pdf/actividad1/actividad1.2.pdf" target="_blank">Ver PDF Instalación Consola</a>
+
+                <p><b>Imágenes o videos (opcionales):</b></p>
+                <div class="gallery">
+                    <img src="imagenes/actividad1/capturaConsola1.png" alt="">
                     <video controls src="videos/actividad1/videoConsola1.mp4"></video>
                 </div>
-
-                <a class="pdf-button" href="pdf/actividad1/actividad1.2.pdf" target="_blank">Ver PDF Instalación Consola</a>
             </div>
         </section>
+    </section>
+
+    <!-- ACTIVIDAD 2 -->
+    <section id="actividad2">
+        <h2>Actividad 2 – Editores de Texto</h2>
+        <div class="card">
+            <p>Puedes subir PDFs, imágenes o videos aquí.</p>
+        </div>
+    </section>
+
+    <!-- ACTIVIDAD 3 -->
+    <section id="actividad3">
+        <h2>Actividad 3 – Scripts y Procesos</h2>
+        <div class="card">
+            <p>Aquí van videos, capturas, PDFs y código.</p>
+        </div>
+    </section>
+
+    <!-- ACTIVIDAD 4 -->
+    <section id="actividad4">
+        <h2>Actividad 4 – Docker Engine</h2>
+        <div class="card">
+            <p>Videos + PDFs + Dockerfiles.</p>
+        </div>
+    </section>
+
+    <!-- ACTIVIDAD 5 -->
+    <section id="actividad5">
+        <h2>Actividad 5 – Docker Hub</h2>
+        <div class="card">
+            <p>Evidencias del push y publicación.</p>
+        </div>
+    </section>
+
+    <!-- ACTIVIDAD 6 -->
+    <section id="actividad6">
+        <h2>Actividad 6 – Kubernetes</h2>
+        <div class="card">
+            <p>Instalación, pods, servicios, videos, capturas.</p>
+        </div>
+    </section>
+
+    <!-- ACTIVIDAD 7 -->
+    <section id="actividad7">
+        <h2>Actividad 7 – Sitio Web</h2>
+        <div class="card">
+            <p>Videos, PDFs y material final.</p>
+        </div>
+    </section>
+
+    <!-- ACTIVIDAD 8 -->
+    <section id="actividad8">
+        <h2>Actividad 8 – Presentación Final</h2>
+        <div class="card">
+            <p>Sube aquí el video de sustentación.</p>
+        </div>
     </section>
 
     <footer>
