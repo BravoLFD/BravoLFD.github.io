@@ -140,11 +140,34 @@
 
         /* MENU HAMBURGUESA */
         .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
-
+                display: none;
+                flex-direction: column;
+                cursor: pointer;
+                padding: 10px;
+                margin-right: 10px; /* <-- Mueve un poco el botón a la izquierda */
+            }
+            
+        .hamburger span {
+                width: 28px;
+                height: 3px;
+                background: white;
+                margin: 4px 0;
+                border-radius: 2px;
+            }
+            
+            /* Para pantallas pequeñas */
+            @media (max-width: 850px) {
+        .hamburger {
+                    display: flex;
+                    position: relative;
+                    right: 10px;  /* <-- Evita que se pegue al borde derecho */
+                    z-index: 2000;
+                }
+            
+                nav ul {
+                    display: none;
+                }
+            }
         .hamburger span {
             width: 28px;
             height: 3px;
