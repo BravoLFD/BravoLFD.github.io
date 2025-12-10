@@ -433,8 +433,28 @@ function toggleMenu() {
         <div class="card">
             <h3>3.3 Gestión de procesos en Linux</h3>
             <p><b>Video:</b></p>
-            <div class="gallery">
-                <video controls src="videos/actividad3/video3.3.mp4"></video>
+            <div class="gallery" style="max-width: 650px; margin: auto;">
+                <div style="
+                    position: relative;
+                    width: 100%;
+                    padding-top: 56.25%; /* 16:9 aspect ratio */
+                    border-radius: 10px;
+                    overflow: hidden;
+                ">
+                    <iframe 
+                        src="https://drive.google.com/file/d/1rrXWEUcZIj8iqZcls_IAMrT0BW6zc2Ki/preview"
+                        allow="autoplay"
+                        style="
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            border: none;
+                            border-radius: 10px;
+                        ">
+                    </iframe>
+                </div>
             </div>
             <p><b>Documentacion PDF con capturas:</b></p>
             <a class="pdf-button" href="pdf/actividad3/actividad3.3.pdf" target="_blank">Ver PDF Gestión de procesos en Linux</a>
