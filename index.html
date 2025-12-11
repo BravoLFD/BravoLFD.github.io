@@ -1,4 +1,4 @@
-d<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -242,7 +242,13 @@ h2 {
 
 /* ======= RESPONSIVE FIX ======= */
 @media (max-width: 768px) {
-
+    /* FIX VIDEOS EN MÓVIL */
+    .gallery video,
+    .gallery iframe {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+    }
     /* OCULTAR MENÚ ESCRITORIO */
     nav ul {
         display: none !important;
