@@ -283,20 +283,19 @@ h2 {
 
 /* ===== VIDEOS UNIFICADOS Y RESPONSIVE (MISMO TAMAÑO QUE EL 3.3) ===== */
 .video-wrapper {
-    max-width: 650px;       /* igual que tu bloque correcto */
+    max-width: 400px;        /* tamaño más pequeño */
     width: 100%;
-    margin: 0 auto;         /* centra sin márgenes adicionales */
+    margin: 0 auto 25px auto; /* centrado + espacio abajo */
 
     position: relative;
-    padding-top: 56.25%;    /* mantiene 16:9 exactamente */
+    padding-top: 56.25%;     /* proporción 16:9 */
 
     border-radius: 10px;
     overflow: hidden;
-    background: black;      /* evita espacios vacíos */
+    background: black;
     box-shadow: 0 4px 15px rgba(0,0,0,0.25);
 }
 
-/* Video interno o iframe */
 .video-wrapper iframe,
 .video-wrapper video {
     position: absolute;
@@ -306,7 +305,7 @@ h2 {
     height: 100%;
     border: none;
     border-radius: 10px;
-    object-fit: contain;     /* mantiene tamaño real del video SIN recortar */
+    object-fit: contain;     /* mantiene el tamaño sin cortar */
 }
 
 </style>
@@ -422,7 +421,7 @@ function toggleMenu() {
             <h3>1.2 Instalación en Ambiente Consola</h3>
             <p><b>Video:</b></p>
             <div class="video-wrapper">
-                <iframe src="https://drive.google.com/file/d/1iad2GkIxsx01yakQwaGQj-6X6qhN209N/preview" allow="autoplay"></iframe>
+                <iframe src="https://drive.google.com/file/d/1iad2GkIxsx01yakQwaGQj-6X6qhN209N/preview" allow="autoplay" allowfullscreen></iframe>
             </div>
             
             <p><b>Documentacion PDF con capturas:</b></p>
@@ -456,7 +455,7 @@ function toggleMenu() {
             <h3>2.2 Instalación en FedoraServer</h3>
             <p><b>Video:</b></p>
             <div class="video-wrapper">
-                <iframe src="https://drive.google.com/file/d/114X7LvhR7bf9QXkPaT_y_dRAp1TRugz8/preview" allow="autoplay"></iframe>
+                <iframe src="https://drive.google.com/file/d/114X7LvhR7bf9QXkPaT_y_dRAp1TRugz8/preview" allow="autoplay" allowfullscreen></iframe>
             </div>
 
             <p><b>Documentacion PDF con capturas y Archivos de configuracion personalizado(.vimrc y .nanorc):</b></p>
@@ -481,7 +480,7 @@ function toggleMenu() {
             <h3>3.2 Script de automatización en entorno consola</h3>
             <p><b>Video:</b></p>
             <div class="video-wrapper">
-                <iframe src="https://drive.google.com/file/d/1O1r-VSWR7wBVeDud-Bxu332JBW209zQF/preview" allow="autoplay"></iframe>
+                <iframe src="https://drive.google.com/file/d/1O1r-VSWR7wBVeDud-Bxu332JBW209zQF/preview" allow="autoplay" allowfullscreen></iframe>
             </div>
             <p><b>Documentacion PDF con capturas:</b></p>
             <a class="pdf-button" href="pdf/actividad3/actividad3.2.pdf" target="_blank">Ver PDF Script de automatización en entorno consola</a>
@@ -494,7 +493,7 @@ function toggleMenu() {
             <h3>3.3 Gestión de procesos en Linux</h3>
             <p><b>Video:</b></p>
              <div class="video-wrapper">
-                <iframe src="https://drive.google.com/file/d/1VRxha4EO4BtyHL7_OLCkTSYX0TXaIkTG/preview" allow="autoplay"></iframe>
+                <iframe src="https://drive.google.com/file/d/1VRxha4EO4BtyHL7_OLCkTSYX0TXaIkTG/preview" allow="autoplay" allowfullscreen></iframe>
             </div>
         </div>
             <p><b>Documentacion PDF con capturas:</b></p>
