@@ -283,39 +283,45 @@ h2 {
 
 /* ===== VIDEOS UNIFICADOS Y RESPONSIVE (MISMO TAMAÑO QUE EL 3.3) ===== */
 .video-wrapper {
-    max-width: 450px;          /* tamaño más realista para PC */
     width: 100%;
-    margin: 0 auto 25px auto;
-
+    max-width: 480px;       /* tamaño ideal */
+    margin: 20px auto;
     position: relative;
-    padding-top: 56.25%;       /* proporción 16:9 */
 
-    border-radius: 12px;
+    /* Mantener relación 16:9 */
+    padding-top: 56.25%;
+
     overflow: hidden;
+    border-radius: 12px;
     background: black;
     box-shadow: 0 4px 15px rgba(0,0,0,0.25);
 }
 
-/* Videos locales (.mp4) – NO recortar */
+/* Estilo para iFrames (Drive) */
+.video-wrapper iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 180%;   /* “zoomear” para evitar bordes negros */
+    height: 180%;
+
+    transform: translate(-50%, -50%);
+    border: none;
+    border-radius: 12px;
+}
+
+/* Estilo para videos locales */
 .video-wrapper video {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    border: none;
-}
 
-/* Videos de Google Drive – Forzar a forma horizontal (sin recorte visible) */
-.video-wrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;   /* evita que aparezcan "verticales" */
-    border: none;
+
+    object-fit: cover;  /* asegura que no se vea "vertical" */
+    border-radius: 12px;
 }
 
 </style>
