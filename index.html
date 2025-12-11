@@ -281,14 +281,18 @@ h2 {
     }
 }
 
+/* ===== VIDEOS UNIFICADOS Y RESPONSIVE (MISMO TAMAÑO QUE EL 3.3) ===== */
 .video-wrapper {
-    max-width: 650px;
-    margin: 0 auto 20px auto;
-    position: relative;
+    max-width: 650px;            /* ancho máximo */
     width: 100%;
-    padding-top: 56.25%; /* 16:9 */
+    margin: 0 auto 25px auto;    /* centrar */
+    
+    position: relative;
+    padding-top: 56.25%;         /* relación 16:9 EXACTA */
+    
     border-radius: 12px;
     overflow: hidden;
+    background: black;           /* evita espacios raros */
     box-shadow: 0 4px 15px rgba(0,0,0,0.25);
 }
 
@@ -301,7 +305,7 @@ h2 {
     height: 100%;
     border: none;
     border-radius: 12px;
-    object-fit: cover;
+              /* recorta el video para ajustarse */
 }
 
 </style>
