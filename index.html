@@ -281,6 +281,29 @@ h2 {
     }
 }
 
+.video-wrapper {
+    max-width: 650px;
+    margin: 0 auto 20px auto;
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+}
+
+.video-wrapper iframe,
+.video-wrapper video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
 </style>
 
 <script>
@@ -379,8 +402,10 @@ function toggleMenu() {
         <div class="card">
             <h3>1.1 Instalación en Ambiente Gráfico</h3>
             <p><b>Video:</b></p>
-            <div class="gallery">
-                <video controls src="videos/actividad1/video1.mp4"></video>
+            <div class="video-wrapper">
+                <video controls>
+                    <source src="videos/actividad1/video1.mp4" type="video/mp4">
+                </video>
             </div>
             <p><b>Documentacion PDF con capturas:</b></p>
             <a class="pdf-button" href="pdf/actividad1/actividad1.1.pdf" target="_blank">Ver PDF Instalación Gráfica</a>
@@ -391,19 +416,9 @@ function toggleMenu() {
         <div class="card">
             <h3>1.2 Instalación en Ambiente Consola</h3>
             <p><b>Video:</b></p>
-            <div class="gallery" style="max-width: 600px;">
-                    <iframe 
-                        src="https://drive.google.com/file/d/1iad2GkIxsx01yakQwaGQj-6X6qhN209N/preview"
-                        allow="autoplay"
-                        allowfullscreen
-                        style="
-                            width: 300px;
-                            height: 170px; 
-                            border: none;
-                            border-radius: 10px;
-                        ">
-                    </iframe>
-                </div>
+            <div class="video-wrapper">
+                <iframe src="https://drive.google.com/file/d/1iad2GkIxsx01yakQwaGQj-6X6qhN209N/preview" allow="autoplay"></iframe>
+            </div>
             
             <p><b>Documentacion PDF con capturas:</b></p>
             <a class="pdf-button" href="pdf/actividad1/actividad1.2.pdf" target="_blank">Ver PDF Instalación Consola</a>
@@ -417,8 +432,10 @@ function toggleMenu() {
         <div class="card">
             <h3>2.1 Instalación de Editores en Ubuntu:</h3>
             <p><b>Video:</b></p>
-            <div class="gallery">
-                <video controls src="videos/actividad2/video2.1.mp4"></video>
+            <div class="video-wrapper">
+                <video controls>
+                    <source src="videos/actividad2/video2.1.mp4" type="video/mp4">
+                </video>
             </div>
             <p><b>Documentacion PDF con capturas:</b></p>
             <a class="pdf-button" href="pdf/actividad2/actividad2.1.pdf" target="_blank">Ver PDF Instalación Editores De Texto En Ubuntu</a>
@@ -433,19 +450,10 @@ function toggleMenu() {
         <div class="card">
             <h3>2.2 Instalación en FedoraServer</h3>
             <p><b>Video:</b></p>
-            <div class="gallery" style="max-width: 300px;">
-                    <iframe 
-                        src="https://drive.google.com/file/d/114X7LvhR7bf9QXkPaT_y_dRAp1TRugz8/preview"
-                        allow="autoplay"
-                        allowfullscreen
-                        style="
-                            width: 300px;
-                            height: 170px; 
-                            border: none;
-                            border-radius: 10px;
-                        ">
-                    </iframe>
-                </div>
+            <div class="video-wrapper">
+                <iframe src="https://drive.google.com/file/d/114X7LvhR7bf9QXkPaT_y_dRAp1TRugz8/preview" allow="autoplay"></iframe>
+            </div>
+
             <p><b>Documentacion PDF con capturas y Archivos de configuracion personalizado(.vimrc y .nanorc):</b></p>
             <a class="pdf-button" href="pdf/actividad2/actividad2.2.pdf" target="_blank">Ver PDF Instalación Editores De Texto En FedoraServer</a>
             <a class="pdf-button" 
@@ -467,18 +475,8 @@ function toggleMenu() {
         <div class="card">
             <h3>3.2 Script de automatización en entorno consola</h3>
             <p><b>Video:</b></p>
-            <div class="gallery" style="max-width: 300px;">
-                    <iframe 
-                        src="https://drive.google.com/file/d/1O1r-VSWR7wBVeDud-Bxu332JBW209zQF/preview"
-                        allow="autoplay"
-                        allowfullscreen
-                        style="
-                            width: 300px;
-                            height: 170px; 
-                            border: none;
-                            border-radius: 10px;
-                        ">
-                    </iframe>
+            <div class="video-wrapper">
+                <iframe src="https://drive.google.com/file/d/1O1r-VSWR7wBVeDud-Bxu332JBW209zQF/preview" allow="autoplay"></iframe>
             </div>
             <p><b>Documentacion PDF con capturas:</b></p>
             <a class="pdf-button" href="pdf/actividad3/actividad3.2.pdf" target="_blank">Ver PDF Script de automatización en entorno consola</a>
@@ -490,27 +488,8 @@ function toggleMenu() {
         <div class="card">
             <h3>3.3 Gestión de procesos en Linux</h3>
             <p><b>Video:</b></p>
-            <div class="gallery" style="max-width: 650px; margin: auto;">
-            <div style="
-                position: relative;
-                width: 100%;
-                padding-top: 56.25%; /* 16:9 aspect ratio */
-                border-radius: 10px;
-                overflow: hidden;
-            ">
-                <iframe 
-                    src="https://drive.google.com/file/d/1VRxha4EO4BtyHL7_OLCkTSYX0TXaIkTG/preview"
-                    allow="autoplay"
-                    style="
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        width: 100%;
-                        height: 100%;
-                        border: none;
-                        border-radius: 10px;
-                    ">
-                </iframe>
+             <div class="video-wrapper">
+                <iframe src="https://drive.google.com/file/d/1VRxha4EO4BtyHL7_OLCkTSYX0TXaIkTG/preview" allow="autoplay"></iframe>
             </div>
         </div>
             <p><b>Documentacion PDF con capturas:</b></p>
@@ -524,8 +503,10 @@ function toggleMenu() {
         <div class="card">
             <h3>3.4 Programación Básica con Hilos en Java</h3>
             <p><b>Video:</b></p>
-            <div class="gallery">
-                <video controls src="videos/actividad3/Video3.4.mp4"></video>
+            <div class="video-wrapper">
+                <video controls>
+                    <source src="videos/actividad3/Video3.4.mp4" type="video/mp4">
+                </video>
             </div>
             <p><b>Documentacion PDF con capturas y explicacion:</b></p>
             <a class="pdf-button" href="pdf/actividad3/actividad3.4.pdf" target="_blank">Ver PDF Capturas y Explicacion</a>
