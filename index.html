@@ -283,19 +283,20 @@ h2 {
 
 /* ===== VIDEOS UNIFICADOS Y RESPONSIVE (MISMO TAMAÑO QUE EL 3.3) ===== */
 .video-wrapper {
-    max-width: 650px;            /* ancho máximo */
+    max-width: 650px;       /* igual que tu bloque correcto */
     width: 100%;
-    margin: 0 auto 25px auto;    /* centrar */
-    
+    margin: 0 auto;         /* centra sin márgenes adicionales */
+
     position: relative;
-    padding-top: 56.25%;         /* relación 16:9 EXACTA */
-    
-    border-radius: 12px;
+    padding-top: 56.25%;    /* mantiene 16:9 exactamente */
+
+    border-radius: 10px;
     overflow: hidden;
-    background: black;           /* evita espacios raros */
+    background: black;      /* evita espacios vacíos */
     box-shadow: 0 4px 15px rgba(0,0,0,0.25);
 }
 
+/* Video interno o iframe */
 .video-wrapper iframe,
 .video-wrapper video {
     position: absolute;
@@ -304,8 +305,8 @@ h2 {
     width: 100%;
     height: 100%;
     border: none;
-    border-radius: 12px;
-    object-fit: cover;           /* recorta el video para ajustarse */
+    border-radius: 10px;
+    object-fit: contain;     /* mantiene tamaño real del video SIN recortar */
 }
 
 </style>
